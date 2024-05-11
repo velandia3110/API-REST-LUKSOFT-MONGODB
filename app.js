@@ -70,8 +70,9 @@ router.delete("/:id",jsonParser,async(req, res) =>{
     }
 });
 
+const port = process.env.PORT || 4000;
 
-app.listen(10000, () =>{
+app.listen(port, () =>{
     console.log("Conectado");
 });
 
