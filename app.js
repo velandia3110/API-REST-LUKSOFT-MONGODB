@@ -71,8 +71,8 @@ router.delete("/:id",jsonParser,async(req, res) =>{
 });
 
 
-app.listen(3001, () =>{
-    console.log("El servidor esta en el puerto 3001");
+app.listen(10000, () =>{
+    console.log("Conectado");
 });
 
 dbconnect();
