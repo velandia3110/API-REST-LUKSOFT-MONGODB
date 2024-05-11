@@ -11,10 +11,10 @@ const urlencodedParser = bodyParser.urlencoded({extended:false});
 
 const router = express.Router();
 
-app.use("/api/empleados",router);
+app.use(router);
 app.use(express.json());
 
-router.post("/",jsonParser,async(req,res)=>{
+router.post("/api/empleados/",jsonParser,async(req,res)=>{
     try{
         const body = req.body;
         console.log(body);
@@ -26,7 +26,7 @@ router.post("/",jsonParser,async(req,res)=>{
     }
 });
 
-router.get("/",async(req, res) =>{
+router.get("/api/empleados/",async(req, res) =>{
     try{
         const result = await ModelUser.find({});
         res.send(result);
@@ -35,7 +35,7 @@ router.get("/",async(req, res) =>{
         res.send(err.message);
     }
 });
-router.get("/:id",async(req, res) =>{
+router.get("/api/empleados/:id",async(req, res) =>{
     try{
         const id = req.params.id;
         const result = await ModelUser.findById(id);
@@ -46,7 +46,7 @@ router.get("/:id",async(req, res) =>{
     }
 });
 
-router.put("/:id",jsonParser,async(req, res) =>{
+router.put("/api/empleados/:id",jsonParser,async(req, res) =>{
     try{
         const body = req.body;
         console.log(body);
@@ -59,7 +59,7 @@ router.put("/:id",jsonParser,async(req, res) =>{
     }
 });
 
-router.delete("/:id",jsonParser,async(req, res) =>{
+router.delete("/api/empleados/:id",jsonParser,async(req, res) =>{
     try{
         const id = req.params.id;
         const result = await ModelUser.deleteOne({_id:id});
