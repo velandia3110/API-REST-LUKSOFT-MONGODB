@@ -2,8 +2,15 @@ const express = require('express');
 const dbconnect = require('./config');
 const ModelUser = require('./userModel');
 const bodyParser = require('body-parser')
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors({
+    origin:'https://luksofqa.netlify.app/',
+    optionsSuccessStatus:200,
+    credentials:true
+}));
 
 const jsonParser = bodyParser.json();
 
